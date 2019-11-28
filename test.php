@@ -1,7 +1,9 @@
 <?php
     require_once __DIR__ . '/vard.php';
 
-    $PATH_TO_FOLDER = __DIR__;
+    file_put_contents( "llog.txt", $_POST );
+
+    /*$PATH_TO_FOLDER = __DIR__;
     $PATH_TO_WIDGETS = "C:/Users/alarin/Desktop/widgets";
     $widget_name = "amo_1c"; 
     $PATH_TO_OLD_VRS_WIDGET = "$PATH_TO_WIDGETS/widgets/$widget_name";
@@ -76,7 +78,7 @@
     rmRec( $PATH_TO_OLD_VRS_WIDGET );
     my_copy_all( $PATH_TO_NEW_VRS_WIDGET, $PATH_TO_OLD_VRS_WIDGET  );
 
-    shell_exec( __DIR__."/git_pull.sh" );
+    shell_exec( __DIR__."/git_pull.sh" );*/
 
 
 
