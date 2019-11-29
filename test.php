@@ -1,7 +1,20 @@
 <?php
     require_once __DIR__ . '/vard.php';
 
-    file_put_contents( "llog.txt", $_POST );
+    $uploaddir = $_SERVER['DOCUMENT_ROOT'].DIRECTORY_SEPARATOR.'automerge'.DIRECTORY_SEPARATOR;
+    $uploadfile = $uploaddir . $_POST['name'].".zip";
+
+    if (move_uploaded_file($_FILES['arch']['tmp_name'], $uploadfile)) {
+        $out = "Файл корректен и был успешно загружен.\n";
+    } else {
+        $out = "Возможная атака с помощью файловой загрузки!\n";
+    }
+    //file_put_contents( "log1.txt", $uploaddir );
+
+
+    /*$uploaddir = $_SERVER['DOCUMENT_ROOT'].DIRECTORY_SEPARATOR.'uploads'.DIRECTORY_SEPARATOR;
+
+    file_put_contents( "log.txt", $uploaddir );*/
 
     /*$PATH_TO_FOLDER = __DIR__;
     $PATH_TO_WIDGETS = "C:/Users/alarin/Desktop/widgets";
