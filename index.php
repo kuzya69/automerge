@@ -21,7 +21,7 @@
             <input type = "file" name = "arch" class = "chill-form__file" placeholder = "Архивчик" accept="application/zip" required />    
             <input type = "submit" class = "chill-form__button" value = "Проверить" />
             <div class = "addition_info" id = "spoiler" >
-                <input type = "hash" name = "hash" class = "chill-form__input" placeholder = "Input the code" pattern = "[a-zA-Z0-9]{64}" />
+                <input type = "hash" name = "hash" class = "chill-form__input" placeholder = "Input the code" />
                 <input type = "version" name = "version" class = "chill-form__input" placeholder = "Input the version" pattern = "(\d+\.)+\d" />
             </div>
         </form>	
@@ -83,7 +83,6 @@
                 url: 'process.php',
                 type: "POST",
                 data: formData,
-                async: false,
                 success: function (msg) {
                     alert(msg);
                 },

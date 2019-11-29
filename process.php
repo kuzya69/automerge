@@ -3,6 +3,10 @@
     require_once __DIR__ . '/fs.php';
     require_once __DIR__ . '/config.php';
 
+    file_put_contents( "log.txt", $_POST[ "name"]  );
+
+   // die( "stopped" );
+
     $uploaddir = $_SERVER['DOCUMENT_ROOT'].'/automerge';    //project dir
     $uploadfile = '/'.$uploaddir . $_POST['name'].".zip";   //filename
 
@@ -20,8 +24,10 @@
         "version" => ""
     );
 
+    die( "stopped" );
+
     //get updates from git
-    shell_exec( __DIR__."/git_pull.sh" );
+    //shell_exec( __DIR__."/git_pull.sh" );
 
     //get old manifest.json
     $cont = json_decode( file_get_contents( "$PATH_TO_OLD_VRS_WIDGET/manifest.json" ) );

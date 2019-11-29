@@ -49,6 +49,7 @@ body{
 }
 .chill-form__label{
     position: absolute;
+    font-family: monospace;
     right: 10px;
     top: 10px;
     background: #43a843dd;
