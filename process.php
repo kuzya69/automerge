@@ -1,27 +1,17 @@
 <?php
     require_once __DIR__ . '/vard.php';
+    require_once __DIR__ . '/fs.php';
+    require_once __DIR__ . '/config.php';
 
-    $uploaddir = $_SERVER['DOCUMENT_ROOT'].DIRECTORY_SEPARATOR.'automerge'.DIRECTORY_SEPARATOR;
-    $uploadfile = $uploaddir . $_POST['name'].".zip";
+    $uploaddir = $_SERVER['DOCUMENT_ROOT'].'/automerge';    //project dir
+    $uploadfile = '/'.$uploaddir . $_POST['name'].".zip";   //filename
 
-    if (move_uploaded_file($_FILES['arch']['tmp_name'], $uploadfile)) {
-        $out = "Файл корректен и был успешно загружен.\n";
-    } else {
-        $out = "Возможная атака с помощью файловой загрузки!\n";
-    }
-    //file_put_contents( "log1.txt", $uploaddir );
+    if (! move_uploaded_file($_FILES['arch']['tmp_name'], $uploadfile)) 
+        exit( "File can't be loaded. Plz, don't kill me!" );
 
-
-    /*$uploaddir = $_SERVER['DOCUMENT_ROOT'].DIRECTORY_SEPARATOR.'uploads'.DIRECTORY_SEPARATOR;
-
-    file_put_contents( "log.txt", $uploaddir );*/
-
-    /*$PATH_TO_FOLDER = __DIR__;
-    $PATH_TO_WIDGETS = "C:/Users/alarin/Desktop/widgets";
-    $widget_name = "amo_1c"; 
+    $widget_name = $_POST['name']; 
     $PATH_TO_OLD_VRS_WIDGET = "$PATH_TO_WIDGETS/widgets/$widget_name";
     $PATH_TO_NEW_VRS_WIDGET = $PATH_TO_FOLDER."/".$widget_name;
-    
 
     $widget = array(
         "name" => $widget_name,
@@ -54,44 +44,20 @@
     if( ! $cont )
         exit( "New widget folder not found!" );
 
+    //set vals and record all to new manifest.json
     $cont->widget->code = $widget[ "code" ];
     $cont->widget->secret_key = $widget[ "secret_key" ];
     $cont->widget->version = $widget[ "version" ];
     $manifest_inner = json_encode( $cont, JSON_PRETTY_PRINT  );
     file_put_contents( $PATH_TO_NEW_VRS_WIDGET."/manifest.json", $manifest_inner );
 
-    //remove folder
-    function rmRec($path) {
-        if (is_file($path)) 
-            return unlink($path);
-        if (is_dir($path)) {
-            foreach(scandir($path) as $p) if (($p!='.') && ($p!='..'))
-                rmRec($path.DIRECTORY_SEPARATOR.$p);
-            return rmdir($path); 
-        }
-        return false;
-    }
-    //copy files
-    function my_copy_all($from, $to) {
-        if (is_dir($from)) {
-            @mkdir($to);
-            $d = dir($from);
-            while (false !== ($entry = $d->read())) {
-                if ($entry == "." || $entry == "..") 
-                    continue;
-                my_copy_all("$from/$entry", "$to/$entry");
-            }
-            $d->close();
-        }
-        else 
-            copy($from, $to);
-    }
-
     //manifest is right. Now it's time to load all data form new forlder to "widgets" folder
-    rmRec( $PATH_TO_OLD_VRS_WIDGET );
-    my_copy_all( $PATH_TO_NEW_VRS_WIDGET, $PATH_TO_OLD_VRS_WIDGET  );
+    dir_remove( $PATH_TO_OLD_VRS_WIDGET );
+    dir_copy( $PATH_TO_NEW_VRS_WIDGET, $PATH_TO_OLD_VRS_WIDGET  );
+    dir_remove( $PATH_TO_NEW_VRS_WIDGET );
 
-    shell_exec( __DIR__."/git_pull.sh" );*/
+    //new branch, commit and push
+    shell_exec( __DIR__."/git_push.sh" );
 
 
 

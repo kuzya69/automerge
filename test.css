@@ -3,6 +3,7 @@ body{
 }
 .chill-form{
     display: block;
+    position: relative;
     background: #f0f0f0;
     margin: 40px auto;
     width: 60%;
@@ -25,6 +26,10 @@ body{
 }
 .chill-form__button{   
     position: relative;
+    font-family: "Consolas";
+    font-weight: 100;
+    text-align: center;
+    
     z-index: 100;
     display: block;
     width: 250px;
@@ -34,11 +39,25 @@ body{
     color: #fffa;
     font-size: 25px;
     transition: 0.3s;
-    padding: 10px;
+    padding: 10px 0;
     margin: 20px 0;
 }
 .chill-form__button:hover{
     cursor: pointer;
     transform: scale(1.1);
     background: linear-gradient(45deg, #76a, #428);
+}
+.chill-form__label{
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    background: #43a843dd;
+    width: 50px;
+    height: 30px;
+    color: #fff;
+    box-shadow: 5px 5px 15px #0007;
+    border-radius: 50px 50px 0 50px;
+    padding: 10px;
+    font-size: 25px;
+    z-index: 120;
 }
