@@ -6,9 +6,12 @@ $( document ).ready(()=>{
     var $name = $('.chill-form__input[name="name"]');
     var $form = $( "form[name='postform']" );
     var $label = $("#form-label");
-    var $spoiler = $('.addition_info'); 
+    var $spoiler = $('.addition_info');
+    var $notice = $( ".chill-notice" ); 
 
     var name_regexp = /[A-Za-z0-9_-]{2,}/;
+
+    console.dir( $name );
 
     //set listeners
     $name.on('blur', () =>{         
@@ -25,17 +28,20 @@ $( document ).ready(()=>{
                 if( data[ "err" ] ){
                     $hash.val( "" );
                     $version.val( "" );
-                    $label.fadeIn();
-                    console.log( data[ "err" ] );
+                    show_error( "Error", data["err"] );
                     return;
                 }
+                if( data )
+                    $label.fadeOut();
+                else
+                    $label.fadeIn();
+                    
                 $hash.val( data.secret_key );
-                $version.val( data.version );
-                $label.fadeOut();
+                $version.val( data.version );              
             },
             error: function ( e ) {
                 console.dir( e );
-                alert( "Request error!" );
+                show_error( "Error", "Request error" );
                 $hash.val( "" );
                 $version.val( "" );
                 $label.fadeIn();
@@ -63,7 +69,7 @@ $( document ).ready(()=>{
                 alert(msg);
             },
             error: function(msg) {
-                alert('Ошибка!');
+                show_error( "Error", msg );
             },
             cache: false,
             contentType: false,
@@ -71,8 +77,12 @@ $( document ).ready(()=>{
         });
     });
 
+    $notice.click(()=>{
+        $notice.hide( );
+    })
+
     //set error titles
-    $name.on('input invalid', function(){
+    /*$name.on('input invalid', function(){
         this.setCustomValidity('');
         if (this.validity.valueMissing) 
             this.setCustomValidity("Input this stuff, plz!!!");
@@ -86,9 +96,10 @@ $( document ).ready(()=>{
     });
     $version.on('input invalid', function(){
         this.setCustomValidity("Wrong version!")    
-    });
+    });*/
 
     //hide as default
+    $notice.hide();
     $label.hide();
     $spoiler.hide();
 }); 

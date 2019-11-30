@@ -76,10 +76,15 @@ body{
     background: #c53232;
     box-shadow: 5px 5px 15px #0007; 
     color: white;
-    padding: 20px;   
+    padding: 20px 40px;   
     right: 20px;
     bottom: 20px; 
     border-radius: 100px 100px 0 100px;
+    opacity: 0.7;
+    transition: 0.3s;
+}
+.chill-notice:hover{
+    opacity: 1;
 }
 .chill-notice__title{
     font-family: "Consolas";

@@ -23,7 +23,7 @@
                 title="Input name of the widget" 
             />
             <input type = "file" name = "arch" class = "chill-form__file" placeholder = "Архивчик" accept="application/zip" required />    
-            <input type = "submit" class = "chill-form__button" value = "Проверить" />
+            <input type = "button" class = "chill-form__button" value = "Проверить" />
             <div class = "addition_info" >
                 <input type = "hash" name = "hash" class = "chill-form__input" placeholder = "Input the code" />
                 <input type = "version" name = "version" class = "chill-form__input" placeholder = "Input the version" pattern = "(\d+\.)+\d" />
