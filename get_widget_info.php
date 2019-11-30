@@ -7,6 +7,9 @@
     require_once __DIR__ . '/fs.php';
     require_once __DIR__ . '/config.php';
 
+    if( ! is_dir($PATH_TO_WIDGETS) )
+        exit(json_encode( ["err" => "No widgets directory"] ));
+
     $PATH_TO_OLD_VRS_WIDGET = "$PATH_TO_WIDGETS/widgets/$name";
     $widget = array(
         "name" => $name,
@@ -17,7 +20,6 @@
 
     //get manifest.json
     @$cont = json_decode( file_get_contents( "$PATH_TO_OLD_VRS_WIDGET/manifest.json" ) );
-    file_put_contents( "log.txt", "$PATH_TO_OLD_VRS_WIDGET/manifest.json" );
     if( ! $cont )
         exit();
 
@@ -30,4 +32,4 @@
         return implode( ".", $cur );        
     }
     $widget["version"] = up_vers( $cont->widget->version );
-    echo json_encode( $widget );
+    echo json_encode( ["data" => $widget] );

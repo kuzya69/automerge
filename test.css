@@ -10,6 +10,11 @@ body{
     box-shadow: 5px 5px 15px #000a;
     padding: 30px 5%;
 }
+@media (max-width: 770px) {
+    .chill-form{
+        width: 90%;
+    }
+}
 .chill-form__input{
     position: relative;
     z-index: 100;
@@ -32,7 +37,8 @@ body{
     
     z-index: 100;
     display: block;
-    width: 250px;
+    width: 100%;
+    max-width: 250px;
     background: linear-gradient(45deg, #659, #317);
     box-shadow: 5px 5px 15px #000a;
     border: none;
@@ -61,4 +67,25 @@ body{
     padding: 10px;
     font-size: 25px;
     z-index: 120;
+}
+
+.chill-notice{
+    position: absolute;
+    width: 300px;
+    max-width: calc(100% - 80px);
+    background: #c53232;
+    box-shadow: 5px 5px 15px #0007; 
+    color: white;
+    padding: 20px;   
+    right: 20px;
+    bottom: 20px; 
+    border-radius: 100px 100px 0 100px;
+}
+.chill-notice__title{
+    font-family: "Consolas";
+    font-size: 25px;
+    color: #5a0c0c;
+}
+.chill-notice__text{
+    color: white;
 }
