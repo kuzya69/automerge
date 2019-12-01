@@ -1,6 +1,22 @@
 body{
-    background: #ddd;
+    background: linear-gradient( 45deg, #1e1949, #b13ec0 );
+    margin: 0;
 }
+.chill-promo__grandheader{
+    text-transform: uppercase;
+    font-family: 'Baloo Bhai', cursive;
+    font-weight: 900;
+    text-align: center;
+    color: #fffc;
+    font-size: 120px;
+    line-height: 100px;
+    margin: 100px 0 50px 0;
+}
+.chill-container{
+    width: 60%;
+    margin: 80px auto;
+}
+
 .chill-form{
     display: block;
     position: relative;
@@ -45,8 +61,31 @@ body{
     color: #fffa;
     font-size: 25px;
     transition: 0.3s;
-    padding: 10px 0;
-    margin: 20px 0;
+    margin: 20px auto;
+    padding: 20px;
+}
+.chill-promo__button{   
+    position: relative;
+    font-family: "Consolas";
+    font-weight: 100;
+    text-align: center;
+    
+    z-index: 100;
+    display: block;
+    width: 100%;
+    max-width: 250px;
+    background: linear-gradient(45deg, #73b8ce, #3d0066 );
+    box-shadow: 5px 5px 15px #000a;
+    border: none;
+    color: #fffa;
+    font-size: 25px;
+    transition: 0.3s;
+    margin: 40px auto;
+    padding: 20px;
+}
+.chill-promo__button:hover{
+    cursor: pointer;
+    transform: scale(1.1);
 }
 .chill-form__button:hover{
     cursor: pointer;
@@ -67,6 +106,20 @@ body{
     padding: 10px;
     font-size: 25px;
     z-index: 120;
+}
+
+.chill-promo__header{
+    font-family: "Consolas";
+    font-weight: 100;
+    text-align: center;
+    color: #659;
+    font-size: 25px;
+}
+
+.chill-promo__text{
+    font-family: 'Russo One', sans-serif;
+    font-weight: 100;
+    color: #fffc;
 }
 
 .chill-notice{

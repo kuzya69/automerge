@@ -1,0 +1,70 @@
+body{
+    background: linear-gradient( 45deg, #1e1949, #b13ec0 );
+    margin: 0;
+}
+.chill-promo__grandheader{
+    display: flex;
+    justify-content: center;
+    text-transform: uppercase;
+    font-family: 'Baloo Bhai', cursive;
+    font-weight: 900;
+    text-align: center;
+    color: #fffc;
+    font-size: 120px;
+    line-height: 100px;
+    margin: 100px 0 50px 0;
+    transition: 2s;
+}
+.header-left{
+    color: #c971d6;
+}
+.header-right{
+    color: #fffc;
+}
+
+.chill-container{
+    width: 60%;
+    margin: 80px auto;
+}
+.chill-promo__button{   
+    position: relative;
+    font-family: 'Baloo Bhai', cursive;
+    font-weight: 100;
+    text-align: center;
+    
+    z-index: 100;
+    display: block;
+    width: 100%;
+    max-width: 250px;
+    background: linear-gradient(45deg, #8d99ff, #5c0099 );
+    box-shadow: 5px 10px 30px #0005;
+    border: none;
+    border-radius: 30px;
+    color: #fffa;
+    font-size: 25px;
+    transition: 0.1s;
+    margin: 100px auto;
+    padding: 20px;
+}
+.chill-promo__button:hover{
+    cursor: pointer;
+    transform: scale(1.1);
+    background: linear-gradient(45deg, #77a7ff, #7c15c0 );
+}
+.chill-promo__text{
+    font-family: monospace;
+    line-height: 1.2em; 
+    font-weight: 100;
+    color: #edd9ffb0;
+}
+@media (max-width: 770px) {
+    .chill-promo__grandheader{
+        display: block;
+        font-size: 60px;
+        line-height: 50px;
+    }
+    .chill-container{
+        width: 80%;
+        margin: 80px auto;
+    }
+}

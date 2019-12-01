@@ -4,34 +4,26 @@
         <meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <script src="js/index/jquery.js" ></script>
-        <link rel="stylesheet" type="text/css" href="test.css">
-		<title>Мерге</title>
+        <link rel="stylesheet" type="text/css" href="css/index.css">
+        <link href="https://fonts.googleapis.com/css?family=Baloo+Bhai|Russo+One&display=swap&subset=cyrillic,latin-ext" rel="stylesheet">
+        <title>Мерге</title>
 
         <script src="js/index/notice" ></script>
         <script src="js/index/init" ></script>
 	</head>
 	<body>
-        <form class = "chill-form" name = "postform" method = "POST" enctype="multipart/form-data" >
-            <div class = "chill-form__label" id="form-label" >New</div>
-            <h3 class = "chill-form__header" >Automerge</h3>
-            <input 
-                type = "text" 
-                name = "name" 
-                class = "chill-form__input" 
-                placeholder = "Название виджета" 
-                required pattern="[A-Za-z0-9_-]{2,}" 
-                title="Input name of the widget" 
-            />
-            <input type = "file" name = "arch" class = "chill-form__file" placeholder = "Архивчик" accept="application/zip" required />    
-            <input type = "button" class = "chill-form__button" value = "Проверить" />
-            <div class = "addition_info" >
-                <input type = "hash" name = "hash" class = "chill-form__input" placeholder = "Input the code" />
-                <input type = "version" name = "version" class = "chill-form__input" placeholder = "Input the version" pattern = "(\d+\.)+\d" />
+        <div class = "chill-promo" >
+            <div class = "chill-promo__grandheader" >
+                <div class = "header-left" >Auto</div>
+                <div class = "header-right" >merge</div>
             </div>
-        </form>	
-        <div class = "chill-notice" >
-            <h3 class = "chill-notice__header" >Error</h3>
-            <p class = "chill-notice__text" ></p>
-        </div>
+          
+            <div class = "chill-container" >
+                <p class = "chill-promo__text" >Merge is easy, Just do it. Merge is part of our life. Do merge, never trust somebody else, who wanna do your merge by himself. Merge is a your goal, it's all about life. To do the best merge you must be just like merge. Merge never have itself complete. The author is completly idiot. It's all because of merge. You can become true merger. You would merge everything. Everybody must have an ability to do a merge.</p>
+                <a class = "chill-promo__link" >
+                    <div class = "chill-promo__button" >Try it by yourself</div>
+                </a>
+            </div>
+        </div>         
 	</body>
 </html> 
