@@ -2,24 +2,12 @@ body{
     background: linear-gradient( 45deg, #1e1949, #b13ec0 );
     margin: 0;
 }
-.chill-promo__grandheader{
-    display: flex;
-    justify-content: center;
+.chill-form__header{
     text-transform: uppercase;
     font-family: 'Baloo Bhai', cursive;
     font-weight: 900;
-    text-align: center;
-    color: #fffc;
-    font-size: 120px;
-    line-height: 100px;
-    margin: 100px 0 50px 0;
-    transition: 2s;
-}
-.header-left{
-    color: #c971d6;
-}
-.header-right{
-    color: #fffc;
+    color: #383838cc;
+    font-size: 40px;
 }
 
 .chill-container{
@@ -67,4 +55,18 @@ body{
         width: 80%;
         margin: 80px auto;
     }
+}
+.chill-form__input{
+    position: relative;
+    z-index: 100;
+    display: block;
+    width: 100%;
+    box-shadow: 5px 5px 15px #000a;
+    border: none;
+    color: #555555;
+    font-size: 25px;
+    transition: 0.3s;
+    padding: 10px;
+    margin: 20px auto;
+    border: none;
 }

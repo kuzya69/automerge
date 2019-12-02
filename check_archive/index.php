@@ -12,18 +12,16 @@
 	</head>
 	<body>
         <form class = "chill-form" >
-            <label class = "chill-form__label" >
-                <h3 class = "chill-form__header" >Input the name of the widget</h3>
-                <input class = "chill-form__input" name = "name" ></input> 
-            </label>
-            <label class = "chill-form__label" >
-                <h3 class = "chill-form__header" >Drag the archive of the widget here:</h3>
-                <div class = "chill-form__dropzone" >
-                    <div class = "dropzone__picture" ></div>
-                    <input type = "file" class = "dropzone__file" name = "archive" accept="application/zip" hidden />    
-                </div>
-                <p class = "dragzone__status" ></p> 
-            </label>
+            <h3 class = "chill-form__header" ><?=$header?></h3>
+            <div class = "chill-form__text" ><?=$text?></div> 
+                
+            <h3 class = "chill-form__header" >Drag the archive of the widget here:</h3>
+            <div class = "chill-form__dropzone" >
+                <div class = "dropzone__picture" ></div>
+                <input type = "file" class = "dropzone__file" name = "archive" accept="application/zip" hidden />    
+            </div>
+            <p class = "dragzone__status" ></p> 
+        
             <input type = "submit" class = "chill-form__button" value = "ok" />  
         </form> 
         <div class = "chill-modal__error" >
