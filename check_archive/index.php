@@ -1,48 +1,37 @@
 <?php
-    $header = "hbkhkjh";
-    $std_text = "Please, check the info of the widget. It would be loaded to repo and then would be merged";
+/*-------------------------*/
+    require_once __DIR__ . '/php/vard.php';
+    require __DIR__ . "/check_archive.php";
 
-    $is_new = isset( $_POST[ "is_new" ] ) ? $_POST[ "is_new" ] : false;
-    $data = isset( $_POST[ "data" ] ) ?  $_POST[ "data" ] : false;
-    
-    //means that there is an error so we would redirect user to the form with error
-    if( ! $data ){
-        header("Location: localhost/");
+    //ERROR codes:
+    // 0 - no error
+    // 1 - can't open manifest json
+    // 2 - can't load file to the server
+
+    //clear old income folder
+    clear_temp();
+    create_temp();
+
+    $name = $_POST[ "name" ];
+    $err = "";
+    $status = "";
+
+    $data = get_data_from_loaded( $name );     //data from old widget   
+    $load_archive_data =  load_archive( $name );
+    if( $load_archive_data[ "err" ] )
+        echo json_encode( $load_archive_data );
+
+    if( !$data || $data[ "err" ] ){     //first time when widget is been loaded to the server or not
+        $data = $load_archive_data;      //take info form loaded archive
+        $status = "add";
     }
-    $text = "";
+    else
+        $status = "update";    
+    
+    //return info
+    echo json_encode([
+        "err" => $data[ "err" ],
+        "data" => $data[ "data" ],
+        "status" => $status,
+    ]);
 ?>
-<html>
-	<head>
-        <meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <script src="../js/index/jquery.js" ></script>
-        <link rel="stylesheet" type="text/css" href="check_archive.css">
-        <link href="https://fonts.googleapis.com/css?family=Baloo+Bhai|Russo+One&display=swap&subset=cyrillic,latin-ext" rel="stylesheet">
-        
-        <script src="check_archive.js" ></script>
-        <title>Мерге</title>
-	</head>
-	<body>
-        <form class = "chill-form" >
-            <h3 class = "chill-form__header" ><?=$header?></h3>
-            <div class = "chill-form__text" ><?=$text?></div> 
-                
-            <div class = "chill-info__line" >
-                <div class = "info-line info-line-key" > name:</div>
-                <div class = "info-line info-line-val" > amo_smth</div>
-            </div>
-            <div class = "chill-info__line" >
-                <div class = "info-line info-line-key" > secret_key:</div>
-                <div class = "info-line info-line-val" > welknewklfwnelkenknweklnwejbjh34gui2dguib</div>
-            </div>
-            <div class = "chill-info__line" >
-                <div class = "info-line info-line-key" > version:</div>
-                <div class = "info-line info-line-val" > 1.0.5</div>
-            </div>
-            <input type = "submit" class = "chill-form__button" value = "ok" />
-            <a class = "chill-form__link" >
-                <button class = "chill-form__button" >Cancel</button>  
-            </a>  
-        </form>     
-	</body>
-</html> 

@@ -9,25 +9,30 @@ $( document ).ready(()=>{
     var $status = $( ".dragzone__status" ); 
 
     //send info to the server with formData
-    $form.submit(()=>{
-        e.preventDefault();
-        var formData = new FormData($(this)[0]);
-
-        if (droppedFiles) {
-            $.each( droppedFiles, function(i, file) {
-                ajaxData.append( $input.attr('name'), file );
-            });
-        }
+    $form.submit( function( event ){
+        event.preventDefault();
+        var formData = new FormData(this);
+        if (droppedFile)   //if thre is a loaded file - replace it with the new one 
+            ajaxData.append( "archive", droppedFile );
         $.ajax({
-            url: 'php/process.php',
+            url: '../check_archive/index.php',
             type: "POST",
             data: formData,
             async: false,
-            success: function (msg) {
-                alert(msg);
+            success: function ( dataJSON ) {
+                data = JSON.parse( dataJSON );
+    
+                if( data["err"] ){
+                    console.log( "Error: " + data[ "err" ] );
+                }
+                else if( data[ "data" ] ){
+                    console.dir(  data[ "data" ] );
+                }
+                else
+                    console.log( "Error" );
             },
             error: function(msg) {
-                show_error( "Error", msg );
+                error_show( "Error", msg );
             },
             cache: false,
             contentType: false,
