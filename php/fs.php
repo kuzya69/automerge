@@ -5,7 +5,7 @@
             return unlink($path);
         if (is_dir($path)) {
             foreach(scandir($path) as $p) if (($p!='.') && ($p!='..'))
-                rmRec($path.DIRECTORY_SEPARATOR.$p);
+                dir_remove($path.DIRECTORY_SEPARATOR.$p);
             return rmdir($path); 
         }
         return false;

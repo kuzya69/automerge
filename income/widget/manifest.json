@@ -1,0 +1,34 @@
+{
+  "widget": {
+    "name": "widget.name",
+    "description": "widget.description",
+    "short_description": "widget.short_description",
+    "version": "1.0.1",
+    "interface_version": 2,
+    "code": "calltrackingby",
+    "secret_key": "c533b8c68f4d2dfc16fdca11dc32555c12103d5227d446847eff372cce43ce59",
+    "init_once": true,
+    "locale": [
+      "ru"
+    ],
+    "installation": false,
+    "support": {
+      "link": "https://call-tracking.by/",
+      "email": "info@call-tracking.by"
+    }
+  },
+  "locations": [
+    "settings"
+    ],
+  "tour": {
+    "is_tour": true,
+    "tour_images": {
+      "ru": [
+        "/images/tour1.png",
+        "/images/tour2.png",
+        "/images/tour3.png"
+      ]
+    },
+    "tour_description": "widget.tour_description"
+  }
+}
