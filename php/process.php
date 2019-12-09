@@ -1,4 +1,6 @@
 <?php
+    set_time_limit( 0 );
+    
     require_once __DIR__ . '/vard.php';
     require_once __DIR__ . '/fs.php';
     require_once dirname(__DIR__) . '/config.php';

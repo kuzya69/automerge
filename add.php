@@ -21,8 +21,11 @@
                     <div class = "dropzone__picture" ></div>
                     <input type = "file" class = "dropzone__file" name = "archive" accept="application/zip" hidden />    
                 </div>
-                <p class = "dragzone__status" ></p> 
             </label>
+            <div class = "dropzone__bottom" >
+                <p class = "dropzone__status" >Element</p>
+                <div class = "dropzone__clear" >remove</div> 
+            </div>
             <input type = "submit" class = "chill-form__button" value = "ok" />  
         </form> 
         <div class = "chill-modal__error" >
