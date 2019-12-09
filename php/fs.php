@@ -18,7 +18,7 @@
             while (false !== ($entry = $d->read())) {
                 if ($entry == "." || $entry == "..") 
                     continue;
-                my_copy_all("$from/$entry", "$to/$entry");
+                dir_copy("$from/$entry", "$to/$entry");
             }
             $d->close();
         }

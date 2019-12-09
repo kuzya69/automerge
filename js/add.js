@@ -24,11 +24,15 @@ $( document ).ready(()=>{
                
                 data = JSON.parse( dataJSON );    
                 if( data["err"] )
-                    console.log( "Error: " + data[ "error_text" ] );
-                else if( data[ "data" ] )
-                    console.dir(  data[ "data" ] );
+                    alert( "Error: " + data[ "error_text" ] );
+                else if( data[ "data" ] ){
+                    alert(  JSON.stringify(data[ "data" ]) );
+                    document.location.href = "process.php?code=" + data[ "data" ][ "code" ] + 
+                                            "&secret_key=" + data[ "data" ]["secret_key"] +
+                                            "&version=" + data[ "data" ]["version"];   //???? don't know about this, but I don't care about sequrity
+                }                    
                 else
-                    console.log( "Error" );
+                    alert( "Error" );
             },
             error: function(msg) {
                 error_show( "Error", msg );

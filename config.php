@@ -1,6 +1,6 @@
 <?php
     $PATH_TO_FOLDER = __DIR__;
-    $PATH_TO_WIDGETS = "C:/Users/Pelmen/Desktop/widgets";
+    $PATH_TO_WIDGETS = "C:/Users/alarin/Desktop/widgets";
     $TEMP_DIR = "income";
 
 
