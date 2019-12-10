@@ -10,7 +10,7 @@
         <title>Мерге</title>
 	</head>
 	<body>
-        <form class = "chill-form" >
+        <form class = "chill-form" id = "archive_form" >
             <label class = "chill-form__label" >
                 <h3 class = "chill-form__header" >Input the name of the widget</h3>
                 <input class = "chill-form__input" name = "name" required ></input> 
@@ -30,6 +30,26 @@
         </form> 
         <div class = "chill-modal__error" >
             <h3 class = "chill-modal__text" ></h3>
-        </div>       
+        </div> 
+
+        <div class = "check_form_wrapper" >
+            <form class = "chill-form" id = "check_form" method = "GET" action = "process.php" >
+                <h3 class = "chill-form__header" >Please, check info, that will be written into the manifest.json:</h3>
+                <h3 class = "chill-form__importantinfo" id = "check-form__new-widget-info" >This widget is being loading for the <b>first</b> time. The data in the inputs has been grabed from loaded widget's manifest.json. In 99,99% situations it <b>must be changed</b> to the correct data</h3>
+                
+                <h3 class = "chill-form__header" >Code:</h3>
+                <input class = "chill-form__input" name = "code" accept="application/zip" required />
+                <h3 class = "chill-form__header" >Secret_key:</h3>
+                <input class = "chill-form__input" name = "secret_key" accept="application/zip" required />
+                <h3 class = "chill-form__header" >Version:</h3>
+                <input class = "chill-form__input" name = "version" accept="application/zip" required />
+
+                <div class = "form__btnset" >
+                    <input type = "submit" class = "chill-form__button inline-btn" value = "ok" />  
+                    <input type = "button" id = "form__cancel-btn" class = "chill-form__button inline-btn" value = "cancel" />
+                </div>  
+            </form>
+        </div> 
+
 	</body>
 </html> 

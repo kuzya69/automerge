@@ -1,4 +1,5 @@
 cd $1
 git checkout master 
+git remote -v
 git pull origin master
-sleep 2s
+read -p "Press enter to continue"

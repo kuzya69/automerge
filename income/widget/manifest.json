@@ -1,0 +1,38 @@
+{
+  "widget": {
+    "name": "widget.name",
+    "description": "widget.description",
+    "short_description": "widget.short_description",
+    "version": "0.0.1",
+    "interface_version": 2,
+    "init_once": false,
+    "locale": [
+      "ru"
+    ],
+    "installation": true,
+    "support": {
+      "link": "https://www.fl.ru/users/goliaf17/",
+      "email": "goliaf17@gmail.com"
+    }
+  },
+  "locations": [
+    "lcard-0",
+    "settings"
+  ],
+  "tour": {
+    "is_tour": true,
+    "tour_images": {
+      "ru": [
+        "/images/tour.png"
+      ]
+    },
+    "tour_description": "widget.tour_description"
+  },
+  "settings": {
+    "options": {
+      "name": "settings.blank",
+      "type": "custom",
+      "required": false
+    }
+  }
+}

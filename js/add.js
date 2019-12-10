@@ -9,10 +9,11 @@ var $archive;
 var $status; 
 var $dropzone;
 var $dropzone_bottom;
+var $check_form;
 
 $( document ).ready(()=>{
     //init jquery objects
-    $form = $( ".chill-form" );
+    $form = $( "#archive_form" );
     $name = $( '.chill-form__input[name="hash"]' );
     $archive = $( '.dropzone__file[name="archive"]' );
     $status = $( ".dropzone__status" ); 
@@ -20,7 +21,15 @@ $( document ).ready(()=>{
     $dropzone = $( ".chill-form__dropzone" );
     $dropzone_bottom = $( ".dropzone__bottom" );
 
-    $dropzone_bottom.hide();  
+    $check_form = $( "#check_form" );
+    $check_form_code = $( "input[name='code']" );
+    $check_form_secret = $( "input[name='secret_key']" );
+    $check_form_version = $( "input[name='version']" );
+    $check_form__widgetinfo = $( "#check-form__new-widget-info" );
+    $check_from__cancel = $( "#form__cancel-btn" );
+
+    $dropzone_bottom.hide();
+    $check_form.parent().hide();
 
     //send info to the server with formData
     $form.submit( function( event ){
@@ -41,9 +50,18 @@ $( document ).ready(()=>{
                     alert( "Error: " + data[ "error_text" ] );
                 else if( data[ "data" ] ){
                     alert(  JSON.stringify(data[ "data" ]) );
-                    document.location.href = "process.php?code=" + data[ "data" ][ "code" ] + 
+                    /*document.location.href = "process.php?code=" + data[ "data" ][ "code" ] + 
                                             "&secret_key=" + data[ "data" ]["secret_key"] +
                                             "&version=" + data[ "data" ]["version"];   //???? don't know about this, but I don't care about sequrity
+                
+                    */
+                    //we gotta show the check form
+                    $form.fadeOut();
+                    $check_form_code.val( data[ "data" ][ "code" ] );
+                    $check_form_secret.val( data[ "data" ]["secret_key"] );
+                    $check_form_version.val( data[ "data" ]["version"] ); 
+                    data[ "status" ] == "update" ? $check_form__widgetinfo.hide() : $check_form__widgetinfo.show();
+                    $check_form.parent().fadeIn();
                 }                    
                 else
                     alert( "Error" );
@@ -94,6 +112,11 @@ $( document ).ready(()=>{
         $dropzone.show();
         $dropzone_bottom.hide();
     });
+
+    $check_from__cancel.on( "click", ()=>{
+        $check_form.parent().fadeOut();
+        $form.fadeIn();
+    });
 }); 
 
 function error_show( $text ){
@@ -103,7 +126,6 @@ function error_show( $text ){
         }
     );
 }
-
     
     
     
