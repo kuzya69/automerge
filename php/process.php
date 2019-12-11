@@ -27,7 +27,7 @@
     $cont->widget->code = $code;
     $cont->widget->secret_key = $secret_key;
     $cont->widget->version = $version;
-    $manifest_inner = json_encode( $cont, JSON_PRETTY_PRINT );
+    $manifest_inner = json_encode( $cont, JSON_PRETTY_PRINT|JSON_UNESCAPED_SLASHES );
 
     file_put_contents( "$LOADED_WIDGET/manifest.json", $manifest_inner );
 
