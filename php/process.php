@@ -36,9 +36,9 @@
     dir_remove( $LOADED_WIDGET );
 
     //new branch, commit and push
-    //shell_exec( dirname(__DIR__)."/sh/git_push.sh $PATH_TO_WIDGETS $code alarin@team.amocrm.ru olbert" );
+    shell_exec( dirname(__DIR__)."/sh/git_push.sh $PATH_TO_WIDGETS $code $version alarin@team.amocrm.ru olbert" );
 
-    header("Location: ready.php?code=$code");
+    header("Location: ready.php?code=$code&version=$version");
 
 
 

@@ -42,10 +42,9 @@ body{
     display: block;
     width: 100%;
     max-width: 250px;
-    background: linear-gradient(45deg, #8d99ff, #5c0099 );
+    background: linear-gradient(45deg, #5c0099, #8d99ff );
     box-shadow: 5px 10px 30px #0005;
     border: none;
-    border-radius: 30px;
     color: #fffa;
     font-size: 25px;
     transition: 0.1s;

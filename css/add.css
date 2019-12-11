@@ -1,4 +1,6 @@
 body{
+    --fontsize: 20px;
+
     display: flex;
     align-items: center;
     background: linear-gradient( 45deg, #1e1949, #b13ec0 );
@@ -8,7 +10,7 @@ body{
     font-family: monospace;
     font-weight: 100;
     color: #642b82;
-    font-size: 23px;
+    font-size: var( --fontsize );
     letter-spacing: -1px;
     line-height: 30px;
     margin: 10px 0;
@@ -37,7 +39,7 @@ body{
     box-shadow: 5px 10px 30px #0005;
     border: none;
     color: #fffa;
-    font-size: 20px;
+    font-size: var( --fontsize );
     transition: 0.1s;
     margin: 10px auto;
     padding: 10px;
@@ -55,7 +57,7 @@ body{
     box-shadow: 5px 5px 5px #0005;
     border: none;
     color: #642b82;
-    font-size: 30px;
+    font-size: var( --fontsize );
     line-height: 30px;
     transition: 0.3s;
     padding: 0 10px;
@@ -64,7 +66,7 @@ body{
 }
 .chill-form__label{
     display: block;
-    margin: 0 0 50px 0;
+    margin: 0 0 20px 0;
 }
 .chill-form__dropzone{
     background: #b49fc7;
@@ -109,12 +111,13 @@ body{
 }
 .dropzone__status{
     font-family: monospace;
-    font-size: 20px;
+    font-size: var( --fontsize );
     color:  #642b82ad;
+    margin: 0;
 }
 .dropzone__clear{
     font-family: monospace;
-    font-size: 20px;
+    font-size:  var( --fontsize );
     transition: 0.1s;
     color:#842551bd;
     margin-left: 20px;
@@ -150,13 +153,16 @@ a:hover{
     align-items: center;
     justify-content: center;
 }
+.btn-cancel{
+    background: linear-gradient(45deg, #4e0c0c, #a82a2a );
+}
 @media (max-width: 770px) {
     .chill-form{
         width: calc( 90% - 40px );
         padding: 20px;
     }
     .chill-form__header{
-        font-size: 30px;
+        font-size: var( --fontsize );
         line-height: 30px;
     }
 }

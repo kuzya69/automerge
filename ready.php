@@ -10,13 +10,14 @@
 	<body>
         <form class = "chill-form" action = "rollback.php" method = "POST" >
             <input type = 'hidden' name = "code" value = '<?=$_GET['code']?>' />
+            <input type = 'hidden' name = "version" value = '<?=$_GET['version']?>' />
             <h3 class = "chill-form__header" >Merge is ready!</h3>
             <p class = "chill-form__text" >Check it on gitlab/hub whatever you use... Also, if you think, that this perfect merge is piece of shit - you can rollback.</p>
             
-            <a href = "add.php" >
-                <input type = "button" class = "chill-form__button" value = "Return" />
-            </a>  
-            <input type = "submit" class = "chill-form__button" value = "Rollback" /> 
+            <div class = "form__btnset" >
+                <a href = "add.php"  class = "chill-form__button inline-btn" >ok</a>  
+                <input type = "submit" class = "chill-form__button inline-btn btn-cancel" value = "Rollback" /> 
+            </div>
         </form>       
 	</body>
 </html> 

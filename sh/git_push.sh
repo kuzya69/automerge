@@ -1,8 +1,8 @@
 cd $1
-git checkout -b $2_automerge 
+git checkout -b $2_$3 
 git add .
-git commit -m"$2_automerge"
-git config --global user.email $3
-git config --global user.name $4
-git push origin $2_automerge
+git commit -m"$2_$3"
+git config --global user.email $4
+git config --global user.name $5
+git push origin $2_$3
 read -p "Press enter to continue"

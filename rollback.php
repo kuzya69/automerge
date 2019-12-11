@@ -1,7 +1,9 @@
 <?php
     set_time_limit( 0 );
     $code = isset( $_POST[ "code" ] ) ? $_POST[ "code" ] : false;
-    shell_exec( __DIR__."/sh/git_reset.sh $code" );
+    $version = isset( $_POST[ "version" ] ) ? $_POST[ "version" ] : false;
+    
+    shell_exec( __DIR__."/sh/git_reset.sh $code $version" );
 ?>
 <html>
 	<head>

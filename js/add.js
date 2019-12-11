@@ -14,7 +14,7 @@ var $check_form;
 $( document ).ready(()=>{
     //init jquery objects
     $form = $( "#archive_form" );
-    $name = $( '.chill-form__input[name="hash"]' );
+    $name = $( '.chill-form__input[name="name"]' );
     $archive = $( '.dropzone__file[name="archive"]' );
     $status = $( ".dropzone__status" ); 
     $remove_btn = $( ".dropzone__clear" );
@@ -49,18 +49,20 @@ $( document ).ready(()=>{
                 if( data["err"] )
                     alert( "Error: " + data[ "error_text" ] );
                 else if( data[ "data" ] ){
-                    alert(  JSON.stringify(data[ "data" ]) );
-                    /*document.location.href = "process.php?code=" + data[ "data" ][ "code" ] + 
-                                            "&secret_key=" + data[ "data" ]["secret_key"] +
-                                            "&version=" + data[ "data" ]["version"];   //???? don't know about this, but I don't care about sequrity
-                
-                    */
+                    //alert(  JSON.stringify(data[ "data" ]) );
                     //we gotta show the check form
                     $form.fadeOut();
-                    $check_form_code.val( data[ "data" ][ "code" ] );
-                    $check_form_secret.val( data[ "data" ]["secret_key"] );
-                    $check_form_version.val( data[ "data" ]["version"] ); 
-                    data[ "status" ] == "update" ? $check_form__widgetinfo.hide() : $check_form__widgetinfo.show();
+                    $check_form_code.val( $name.val() );
+                    $check_form_code.attr( "readonly", "readonly" );
+                    $check_form_secret.val( data[ "data" ]["secret_key"] ); 
+                    if( data[ "status" ] == "update" ){
+                        $check_form__widgetinfo.hide();
+                        $check_form_version.val( data[ "data" ]["version"] );
+                    }
+                    else{
+                        $check_form__widgetinfo.show();
+                        $check_form_version.val( "1.0.0" );
+                    }
                     $check_form.parent().fadeIn();
                 }                    
                 else
