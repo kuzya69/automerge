@@ -63,8 +63,6 @@
         $uploaddir = $_SERVER['DOCUMENT_ROOT']."/automerge/$TEMP_DIR";    //project dir
         $uploadfile = $uploaddir . "/widget.zip";   //filename
 
-        file_put_contents( "log.txt", $uploadfile );
-
         if (! move_uploaded_file($_FILES['archive']['tmp_name'], $uploadfile))
             return [ 
                 "data" => "", 
