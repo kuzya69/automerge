@@ -15,9 +15,6 @@
     if( !( $code && $secret_key && $version ) )
         exit( "No data" );
 
-    //get updates from git
-    shell_exec( dirname(__DIR__)."/sh/git_pull.sh $PATH_TO_WIDGETS" );
-
     //refresh manifest.json in the new folder
     $cont = json_decode( file_get_contents( "$LOADED_WIDGET/manifest.json" ) );
     if( ! $cont )

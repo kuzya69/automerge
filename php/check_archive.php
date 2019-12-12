@@ -2,6 +2,7 @@
     require_once __DIR__ . '/vard.php';
     require_once __DIR__ . "/archive_kit.php";
     require_once __DIR__ . "/error_codes.php";
+    require_once dirname(__DIR__) . "/config.php";
 
     //ERROR codes:
     // 0 - no error
@@ -35,7 +36,10 @@
         $data[ "status" ] = "add";
     }
     else
-        $data[ "status" ] = "update";    
+        $data[ "status" ] = "update"; 
+        
+    //get updates from git
+    shell_exec( dirname(__DIR__)."/sh/git_pull.sh $PATH_TO_WIDGETS" );
     
     //return info
     exit( json_encode( $data ) );
